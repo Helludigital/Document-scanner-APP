@@ -7,7 +7,7 @@ interface ListItemProps {
   title: string;
   subtitle?: string;
   leftIcon?: string;
-  rightIcon?: string;
+  rightIcon?: string | React.ReactNode;
   onPress?: () => void;
   style?: ViewStyle;
   accessibilityLabel?: string;
@@ -53,12 +53,18 @@ const ListItem = ({
         )}
       </View>
       {finalRightIcon && (
-        <MaterialIcons
-          name={finalRightIcon as any}
-          size={20}
-          color={colors.textTertiary}
-          style={styles.rightIcon}
-        />
+        typeof finalRightIcon === 'string' ? (
+          <MaterialIcons
+            name={finalRightIcon as any}
+            size={20}
+            color={colors.textTertiary}
+            style={styles.rightIcon}
+          />
+        ) : (
+          <View style={styles.rightIcon}>
+            {finalRightIcon}
+          </View>
+        )
       )}
     </View>
   );

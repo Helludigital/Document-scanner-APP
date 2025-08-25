@@ -1,11 +1,51 @@
 {
   "expo": {
-    "name": "Expo App Template",
-    "slug": "expo-app-template",
+    "name": "Document Scanner",
+    "slug": "document-scanner",
     "version": "1.0.0",
-    "scheme": "app-template",
+    "scheme": "document-scanner",
     "platforms": ["ios", "android", "web"],
-    "plugins": ["expo-router"],
-    "experiments": { "typedRoutes": true }
+    "plugins": [
+      "expo-router",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow $(PRODUCT_NAME) to access your camera to scan documents."
+        }
+      ],
+      [
+        "expo-media-library",
+        {
+          "photosPermission": "Allow $(PRODUCT_NAME) to access your photos to import documents.",
+          "savePhotosPermission": "Allow $(PRODUCT_NAME) to save scanned documents to your photo library."
+        }
+      ]
+    ],
+    "experiments": { 
+      "typedRoutes": true 
+    },
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "This app uses the camera to scan documents and convert them to PDF.",
+        "NSPhotoLibraryUsageDescription": "This app needs access to photo library to import images for scanning."
+      }
+    },
+    "android": {
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE"
+      ]
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static"
+    }
   }
 }

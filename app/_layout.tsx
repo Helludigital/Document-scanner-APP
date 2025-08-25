@@ -13,6 +13,8 @@ export default function RootLayout() {
       }}
     >
       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+      <Stack.Screen name="scan" options={{ title: 'Scan Document', headerShown: false }} />
+      <Stack.Screen name="doc/[id]" options={{ title: 'Document Details' }} />
       <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Quick Action' }} />
       <Stack.Screen name="+not-found" options={{ title: 'Not Found' }} />
     </Stack>

@@ -20,10 +20,17 @@ export default function TabsLayout() {
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="documents"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color, size }) => <MaterialIcons name="explore" color={color} size={size} />,
+          title: 'Documents',
+          tabBarIcon: ({ color, size }) => <MaterialIcons name="description" color={color} size={size} />,
+        }}
+      />
+      <Tabs.Screen
+        name="settings"
+        options={{
+          title: 'Settings',
+          tabBarIcon: ({ color, size }) => <MaterialIcons name="settings" color={color} size={size} />,
         }}
       />
     </Tabs>
